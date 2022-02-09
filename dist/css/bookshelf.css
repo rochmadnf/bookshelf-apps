@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 
 /*
 ! tailwindcss v3.0.19 | MIT License | https://tailwindcss.com
@@ -821,6 +821,70 @@ body{
   color: rgb(255 255 255 / var(--tw-text-opacity));
   --tw-content: '\2713';
   content: var(--tw-content);
+}
+
+.search{
+  margin: 1.25rem;
+  display: flex;
+  width: 100%;
+  border-radius: 0.75rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(226 232 240 / var(--tw-border-opacity));
+  padding-left: 1rem;
+}
+
+.search > input{
+  border-right-width: 2px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-right: 1rem;
+}
+
+.search > input:focus{
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+@media (min-width: 640px){
+  .search > input{
+    width: 80%;
+  }
+}
+
+@media (min-width: 1024px){
+  .search > input{
+    flex-grow: 2;
+  }
+}
+
+.search > button{
+  border-bottom-right-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+@media (min-width: 640px){
+  .search > button{
+    width: 20%;
+  }
+}
+
+@media (min-width: 1024px){
+  .search > button{
+    flex-grow: 1;
+  }
+}
+
+.btn-search{
+  --tw-bg-opacity: 1;
+  background-color: rgb(99 102 241 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(248 250 252 / var(--tw-text-opacity));
+}
+
+.btn-search:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(67 56 202 / var(--tw-bg-opacity));
 }
 
 #books-section{

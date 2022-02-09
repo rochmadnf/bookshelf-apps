@@ -5,6 +5,7 @@ const allBooks = document.getElementById('all-books');
 const completedBooks = document.getElementById('completed-books');
 const notCompletedBooks = document.getElementById('not-completed-books');
 const booksSection = document.getElementById('books-section');
+const searchBook = document.getElementById('search-btn');
 
 const confirmAlert = () => {
   return Swal.fire({
@@ -58,6 +59,7 @@ newForm.innerHTML = `<div class="row">
 
 addBtn.addEventListener('click', (e) => {
   document.querySelector('.tabs').style.visibility = "hidden";
+  document.querySelector('.search').parentElement.style.display = 'none';
   addBtn.style.display = "none";
   listBook.style.display = "none";
   backBtn.style.display = "flex";
@@ -69,6 +71,7 @@ addBtn.addEventListener('click', (e) => {
 
 backBtn.addEventListener('click', (e) => {
   document.querySelector('.tabs').style.visibility = null;
+  document.querySelector('.search').parentElement.style.display = null;
   addBtn.style.display = "flex";
   backBtn.style.display = "none";
   listBook.style.display = null;
@@ -81,18 +84,77 @@ allBooks.addEventListener('click', (e) => {
 })
 
 completedBooks.addEventListener('click', (e) => {
-  setActiveTab(e.target);
+  setActiveTab(e.target, 'done');
   renderBooks(JSON.parse(localStorage.getItem("books")).filter(book => book.isComplete == true));
 })
 
 notCompletedBooks.addEventListener('click', (e) => {
-  setActiveTab(e.target);
+  setActiveTab(e.target, 'progress');
   renderBooks(JSON.parse(localStorage.getItem("books")).filter(book => book.isComplete == false));
 })
 
-function setActiveTab(element, tab = 'none') {
+searchBook.addEventListener('click', (e) => {
+  const keyword = e.target.previousElementSibling.value;
+  if (keyword.length < 3) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Galat',
+      text: 'Kata kunci minimal 3 karakter',
+      showConfirmButton: false,
+      timer: 1500,
+    })
+  }
+  else {
+    const tab = booksSection.getAttribute('data-tab');
+    const books = JSON.parse(localStorage.getItem("books"));
+    if (e.target.getAttribute('data-method') == 'search') {
+      e.target.innerText = 'X';
+      e.target.setAttribute('data-method', 'reset');
+      e.target.classList.remove('btn-search');
+      e.target.classList.add('btn-danger');
+      switch (tab) {
+        case 'all':
+          renderBooks(books.filter(book => book.title.toLowerCase().includes(keyword)));
+          break;
+        case 'done':
+          renderBooks(books.filter(book => book.title.toLowerCase().includes(keyword)).filter(book => book.isComplete === true));
+          break;
+        default:
+          renderBooks(books.filter(book => book.title.toLowerCase().includes(keyword)).filter(book => book.isComplete === false));
+          break;
+      }
+    }
+    else {
+      resetSearchButton();
+      e.target.previousElementSibling.focus();
+      switch (tab) {
+        case 'all':
+          allBooks.dispatchEvent(new Event('click'));
+          break;
+        case 'done':
+          completedBooks.dispatchEvent(new Event('click'));
+          break;
+        default:
+          notCompletedBooks.dispatchEvent(new Event('click'));
+          break;
+      }
+    }
+  }
+})
+
+function resetSearchButton() {
+  searchBook.innerHTML = 'Cari';
+  searchBook.previousElementSibling.value = '';
+  searchBook.setAttribute('data-method', 'search');
+  searchBook.classList.add('btn-search');
+  searchBook.classList.remove('btn-danger');
+}
+
+function setActiveTab(element, tab) {
   const activeTab = document.querySelector('.tab.active');
-  booksSection.setAttribute('data-tab', tab)
+  booksSection.setAttribute('data-tab', tab);
+  resetSearchButton();
+
   if (Boolean(activeTab)) {
     activeTab.classList.remove('active');
   }
@@ -138,7 +200,7 @@ function isCompleted(el) {
   localStorage.setItem("books", JSON.stringify(books));
   if (booksSection.getAttribute('data-tab') == 'all') {
     renderBooks(books)
-  }else {
+  } else {
     renderBooks(books.filter(book => book.isComplete === !books[indexBook].isComplete))
   }
 }
