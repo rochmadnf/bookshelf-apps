@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="author" content="Rochmad Nurul Fahmi">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bookshelf Apps</title>
-</head>
-<body>
-  <main class="container">
-
-  </main>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="Rochmad Nurul Fahmi" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf Apps</title>
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <link rel="stylesheet" href="./css/bookshelf.css" />
+  </head>
+  <body>
+    <main class="main">
+      <div class="card">
+        <div class="card-header bg-indigo-600 text-slate-50">
+          Bookshelf Apps
+        </div>
+        <div class="card-body">
+          <div class="row" id="actions">
+            <div class="tabs">
+              <div class="tab">Daftar Buku</div>
+              <div class="tab">Selesai dibaca</div>
+              <div class="tab">Belum selesai dibaca</div>
+            </div>
+            <div class="buttons">
+              <button title="Tambah Buku" id="add-book" class="btn btn-primary">
+                <i class="ph-plus-bold text-xl"></i>
+              </button>
+              <button title="Kembali" id="back-btn" class="btn btn-dark" style="display: none;">
+                <i class="ph-backspace-bold text-xl"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./js/main.js"></script>
+  </body>
 </html>

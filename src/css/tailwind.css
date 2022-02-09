@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-poppins;
+}
+
+.main {
+  @apply w-full min-h-[100vh] flex justify-center items-center;
+}
+
+.card {
+  @apply border rounded-xl w-3/5;
+}
+
+.card-header {
+  @apply text-center p-4 text-xl font-bold rounded-tl-[inherit] rounded-tr-[inherit];
+}
+
+.card-body {
+  @apply p-4;
+}
+
+.btn {
+  @apply flex justify-center items-center p-2 rounded-full hover:shadow;
+}
+
+.btn-primary {
+  @apply bg-blue-500 text-slate-50 hover:bg-blue-600 hover:shadow-blue-800;
+}
+
+.btn-dark {
+  @apply bg-gray-600 text-slate-50 hover:bg-gray-800 hover:shadow-gray-900;
+}
+
+.row {
+  @apply flex justify-between items-center;
+}
+
+.tabs {
+  @apply flex gap-0;
+}
+
+.tab {
+  @apply border px-2 py-1 text-center cursor-pointer hover:bg-indigo-500 hover:text-slate-50 hover:border-0;
+}
+
+.tab:first-child {
+  @apply rounded-tl-xl rounded-bl-xl;
+}
+
+.tab:last-child {
+  @apply rounded-tr-xl rounded-br-xl;
+}
+
+.buttons {
+  @apply items-end;
+}
