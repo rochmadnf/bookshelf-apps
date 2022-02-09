@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 
 /*
-! tailwindcss v3.0.19 | MIT License | https://tailwindcss.com
+! tailwindcss v3.0.18 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -588,9 +588,15 @@ body{
 }
 
 .card{
-  width: 60%;
+  width: 100%;
   border-radius: 0.75rem;
   border-width: 1px;
+}
+
+@media (min-width: 768px){
+  .card{
+    width: 60%;
+  }
 }
 
 .card-header{
