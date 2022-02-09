@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -29,19 +29,39 @@ body {
 }
 
 .btn-primary {
-  @apply bg-blue-500 text-slate-50 hover:bg-blue-600 hover:shadow-blue-800;
+  @apply bg-indigo-600 text-slate-50 hover:bg-indigo-500 hover:shadow-indigo-800;
 }
 
 .btn-dark {
-  @apply bg-gray-600 text-slate-50 hover:bg-gray-800 hover:shadow-gray-900;
+  @apply bg-gray-800 text-slate-50 hover:bg-gray-600 hover:shadow-gray-900;
+}
+
+.btn-success {
+  @apply bg-green-600 text-slate-50 hover:bg-green-500 hover:shadow-green-600;
+}
+
+.btn-danger {
+  @apply bg-rose-600 text-slate-50 hover:bg-rose-500 hover:shadow-rose-600;
+}
+
+.btn-warning {
+  @apply bg-amber-600 text-slate-50 hover:bg-amber-500 hover:shadow-amber-600;
+}
+
+.btn-submit {
+  @apply rounded-md bg-indigo-500 text-slate-100 w-full px-4 py-2 text-center hover:bg-indigo-700;
 }
 
 .row {
-  @apply flex justify-between items-center;
+  @apply flex flex-wrap;
 }
 
 .tabs {
   @apply flex gap-0;
+}
+
+.tabs .active {
+  @apply bg-indigo-500 text-slate-50 border-0 font-bold;
 }
 
 .tab {
@@ -57,5 +77,39 @@ body {
 }
 
 .buttons {
-  @apply items-end;
+  @apply flex gap-2;
+}
+
+.form-group {
+  @apply p-1 w-full mb-4;
+}
+
+.form-label {
+  @apply block mb-1 text-gray-900 text-base;
+}
+
+.form-input {
+  @apply p-2 w-full text-gray-800 rounded border font-light focus:outline-none focus:border-2 focus:border-indigo-500;
+}
+
+.form-checkbox {
+  @apply h-6 w-6 mb-1 flex justify-center items-center appearance-none border-2 border-gray-400 checked:before:content-['\2713'] checked:before:text-white checked:bg-indigo-500 checked:border-0;
+}
+
+#books-section {
+  @apply border flex flex-wrap gap-5 items-center justify-center p-5 m-3 mt-10 max-h-96 rounded-md overflow-y-scroll overflow-x-hidden;
+}
+
+.data-book {
+  @apply p-4 border border-slate-200 cursor-pointer relative hover:transform hover:-translate-y-2 hover:shadow-md hover:shadow-indigo-300 hover:border-0 rounded-md flex flex-col gap-4 w-full;
+}
+
+.completed, .not-completed {
+  @apply after:absolute after:h-full after:w-8 after:right-5 after:top-0;
+}
+.completed {
+  @apply after:bg-green-500;
+}
+.not-completed {
+  @apply after:bg-amber-500;
 }

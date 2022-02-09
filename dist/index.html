@@ -16,11 +16,11 @@
           Bookshelf Apps
         </div>
         <div class="card-body">
-          <div class="row" id="actions">
+          <div class="row justify-between items-center" id="actions">
             <div class="tabs">
-              <div class="tab">Daftar Buku</div>
-              <div class="tab">Selesai dibaca</div>
-              <div class="tab">Belum selesai dibaca</div>
+              <div class="tab" id="all-books">Daftar Buku</div>
+              <div class="tab" id="completed-books">Selesai dibaca</div>
+              <div class="tab" id="not-completed-books">Belum selesai dibaca</div>
             </div>
             <div class="buttons">
               <button title="Tambah Buku" id="add-book" class="btn btn-primary">
@@ -31,9 +31,13 @@
               </button>
             </div>
           </div>
-        </div>
+
+          <div id="books-section">
+            
+          </div>
       </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./js/main.js"></script>
   </body>
 </html>
