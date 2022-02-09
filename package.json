@@ -4,8 +4,8 @@
   "description": "project untuk submission front end pemula di dicoding.com",
   "main": "main.js",
   "scripts": {
-    "tailwind dev": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/css/bookshelf.css --watch",
-    "tailwind build": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/css/bookshelf.css"
+    "tailwind:dev": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/css/bookshelf.css --watch",
+    "tailwind:build": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/css/bookshelf.css"
   },
   "keywords": [
     "bookshelf"
